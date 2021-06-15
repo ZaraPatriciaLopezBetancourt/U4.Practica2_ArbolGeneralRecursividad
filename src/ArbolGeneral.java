@@ -34,7 +34,7 @@ public class ArbolGeneral {
         NodoGeneral nuevo = new NodoGeneral (dato);
         return padre.enlazar(nuevo);
     }
-    
+    /*
     private NodoGeneral buscarNodo(String path){
         path = path.substring(1);
         String vector[] = path.split("/");
@@ -50,7 +50,7 @@ public class ArbolGeneral {
             return padre;
         } 
         return null;
-    }
+    }*/
    
     private NodoGeneral buscarNodoR(String path){
         path=path.subString(1);
