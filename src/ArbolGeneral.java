@@ -51,22 +51,23 @@ public class ArbolGeneral {
         } 
         return null;
     }
-    private NodoGeneral buscarNodoR(String path, int z){
-       path = path.substring(1);
-        String vector[] = path.split("/");
-        
+   
+    private NodoGeneral buscarNodoR(String path){
+        path=path.subString(1);
+        String v[]=path.split("/");
         if(vector[0].charAt(0) == raiz.dato){
             if(vector.length==1) return raiz;
             
             NodoGeneral padre = raiz;
-            /*for(int i=1; i<vector.length;i++){
-                padre = padre.obtenerHijo(vector[i].charAt(0));
-                if(padre==null) return null;
-            }*/
-            int i=0;
-            if(padre.obtenerHijo(vector[i].charAt(i)) != null)return buscarNodoR(path, i+1);
-            return padre;
-        } 
-        return null;
+            return buscarNodo(padre,vector,z)
+        }  return null;
+    }
+    private NodoGeneral buscarNodoR(NodoGeneral padre, String [] v, int z){
+        if(z<v.length){
+            padre = padre.obtenerHijo(vector[z].charAt(0));
+            if(padre==null)return null;
+            z=z+1;
+            padre= buscarNodoR(padre, v, z);
+        }return padre;
     }
 }
