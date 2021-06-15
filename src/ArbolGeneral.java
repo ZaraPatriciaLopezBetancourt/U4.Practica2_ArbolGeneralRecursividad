@@ -53,8 +53,8 @@ public class ArbolGeneral {
     }*/
    
     private NodoGeneral buscarNodoR(String path){
-        path=path.subString(1);
-        String v[]=path.split("/");
+        path=path.substring(1);
+        String vector[]=path.split("/");
         if(vector[0].charAt(0) == raiz.dato){
             if(vector.length==1) return raiz;
             
@@ -62,12 +62,12 @@ public class ArbolGeneral {
             return buscarNodo(padre,vector,z)
         }  return null;
     }
-    private NodoGeneral buscarNodoR(NodoGeneral padre, String [] v, int z){
-        if(z<v.length){
+    private NodoGeneral buscarNodoR(NodoGeneral padre, String [] vector, int z){
+        if(z<vector.length){
             padre = padre.obtenerHijo(vector[z].charAt(0));
             if(padre==null)return null;
             z=z+1;
-            padre= buscarNodoR(padre, v, z);
+            padre= buscarNodoR(padre, vector, z);
         }return padre;
     }
 }
